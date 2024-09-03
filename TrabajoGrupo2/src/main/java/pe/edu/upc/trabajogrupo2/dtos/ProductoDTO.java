@@ -1,6 +1,5 @@
 package pe.edu.upc.trabajogrupo2.dtos;
 
-import java.util.Date;
 
 public class ProductoDTO {
     private int idProducto;

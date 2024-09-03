@@ -14,6 +14,7 @@ public class DistritoServiceImplement implements IDistritoService {
     @Autowired
     private IDistritoRepository dR;
 
+    @Override
     public List<Distrito> list() {
         return dR.findAll();
     }

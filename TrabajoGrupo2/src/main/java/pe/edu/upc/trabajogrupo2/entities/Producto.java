@@ -16,21 +16,15 @@ public class Producto {
     private String marcaProducto;
     @Column(name = "labProducto", nullable = false, length = 20)
     private String labProducto;
-    @Column(name = "fechaEmision", nullable = false)
-    private Date fechaEmision;
-    @Column(name = "fechaVenc", nullable = false)
-    private Date fechaVenc;
 
     public Producto() {
     }
 
-    public Producto(int idProducto, String nombreProducto, String marcaProducto, String labProducto, Date fechaEmision, Date fechaVenc) {
+    public Producto(int idProducto, String nombreProducto, String marcaProducto, String labProducto) {
         this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.marcaProducto = marcaProducto;
         this.labProducto = labProducto;
-        this.fechaEmision = fechaEmision;
-        this.fechaVenc = fechaVenc;
     }
 
     public int getIdProducto() {
@@ -65,19 +59,4 @@ public class Producto {
         this.labProducto = labProducto;
     }
 
-    public Date getFechaEmision() {
-        return fechaEmision;
-    }
-
-    public void setFechaEmision(Date fechaEmision) {
-        this.fechaEmision = fechaEmision;
-    }
-
-    public Date getFechaVenc() {
-        return fechaVenc;
-    }
-
-    public void setFechaVenc(Date fechaVenc) {
-        this.fechaVenc = fechaVenc;
-    }
 }

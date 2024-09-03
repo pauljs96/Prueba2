@@ -2,6 +2,7 @@ package pe.edu.upc.trabajogrupo2.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.trabajogrupo2.entities.Distrito;
 import pe.edu.upc.trabajogrupo2.entities.Producto;
 import pe.edu.upc.trabajogrupo2.repositories.IProductoRepository;
 import pe.edu.upc.trabajogrupo2.serviceinterfaces.IProductoService;
@@ -22,5 +23,20 @@ public class ProductoServiceImplement implements IProductoService {
     @Override
     public void insert(Producto producto) {
         pR.save(producto);
+    }
+
+    @Override
+    public Producto listId(int id) {
+        return pR.findById(id).orElse(new Producto());
+    }
+
+    @Override
+    public void update(Producto producto) {
+        pR.save(producto);
+    }
+
+    @Override
+    public void delete(int id) {
+        pR.deleteById(id);
     }
 }

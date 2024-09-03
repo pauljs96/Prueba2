@@ -7,8 +7,6 @@ public class ProductoDTO {
     private String nombreProducto;
     private String marcaProducto;
     private String labProducto;
-    private Date fechaEmision;
-    private Date fechaVenc;
 
     public int getIdProducto() {
         return idProducto;
@@ -42,19 +40,4 @@ public class ProductoDTO {
         this.labProducto = labProducto;
     }
 
-    public Date getFechaEmision() {
-        return fechaEmision;
-    }
-
-    public void setFechaEmision(Date fechaEmision) {
-        this.fechaEmision = fechaEmision;
-    }
-
-    public Date getFechaVenc() {
-        return fechaVenc;
-    }
-
-    public void setFechaVenc(Date fechaVenc) {
-        this.fechaVenc = fechaVenc;
-    }
 }

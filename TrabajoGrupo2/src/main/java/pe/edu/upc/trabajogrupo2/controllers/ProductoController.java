@@ -4,7 +4,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.trabajogrupo2.dtos.ProductoDTO;
+import pe.edu.upc.trabajogrupo2.dtos.RolDTO;
 import pe.edu.upc.trabajogrupo2.entities.Producto;
+import pe.edu.upc.trabajogrupo2.entities.Rol;
 import pe.edu.upc.trabajogrupo2.serviceinterfaces.IProductoService;
 
 import java.util.List;
@@ -29,5 +31,25 @@ public class ProductoController {
         ModelMapper m = new ModelMapper();
         Producto pr = m.map(dto, Producto.class);
         pS.insert(pr);
+    }
+
+    @GetMapping("/{id}")
+    public ProductoDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m = new ModelMapper();
+        ProductoDTO dto = m.map(pS.listId(id), ProductoDTO.class);
+
+        return dto;
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody ProductoDTO dto){
+        ModelMapper m = new ModelMapper();
+        Producto r = m.map(dto, Producto.class);
+        pS.update(r);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id){
+        pS.delete(id);
     }
 }

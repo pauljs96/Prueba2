@@ -1,5 +1,6 @@
 package pe.edu.upc.trabajogrupo2.entities;
 
+//Prueba
 import jakarta.persistence.*;
 
 @Entity

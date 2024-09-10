@@ -51,6 +51,7 @@ public class ProductoController {
         pS.update(r);
     }
 
+    @PreAuthorize("hasAuthority('DBotica') or hasAuthority('Administrador')")
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         pS.delete(id);

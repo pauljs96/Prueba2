@@ -38,4 +38,14 @@ public class DetalleOrdenServiceImplement implements IDetalleOrdenService {
     public void delete(int id) {
         IdetOrdRepo.deleteById(id);
     }
+
+    @Override
+    public List<String[]> ProductoVendidoxBotica() {
+        return IdetOrdRepo.ProductoVendidoxBotica();
+    }
+
+    @Override
+    public List<String[]> BoticasConMayoresVentas() {
+        return IdetOrdRepo.BoticasConMayoresVentas();
+    }
 }

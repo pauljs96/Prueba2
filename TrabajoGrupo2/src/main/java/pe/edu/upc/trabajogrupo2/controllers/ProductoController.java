@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/productos")
-
 public class ProductoController {
     @Autowired
     private IProductoService pS;

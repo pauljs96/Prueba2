@@ -22,6 +22,7 @@ public class ProductoxBoticaController {
     @Autowired
     private IProductoxBoticaService IxBServ;
 
+    @PreAuthorize("hasAuthority('Administrador')")
     @GetMapping
     public List<ProductoxBoticaDTO> listar(){
         return IxBServ.list().stream().map(x -> {
@@ -38,6 +39,7 @@ public class ProductoxBoticaController {
         IxBServ.insert(pxb);
     }
 
+    @PreAuthorize("hasAuthority('Administrador')")
     @GetMapping("/{id}")
     public ProductoxBoticaDTO listarId(@PathVariable("id") Integer id){
         ModelMapper m = new ModelMapper();
@@ -46,6 +48,7 @@ public class ProductoxBoticaController {
         return dto;
     }
 
+    @PreAuthorize("hasAuthority('Administrador')")
     @PutMapping
     public void modificar(@RequestBody ProductoxBoticaDTO dto){
         ModelMapper m = new ModelMapper();
@@ -53,7 +56,8 @@ public class ProductoxBoticaController {
         IxBServ.update(r);
     }
 
-    @PreAuthorize("hasAuthority('DBotica') or hasAuthority('Administrador')")
+
+    @PreAuthorize("hasAuthority('Administrador')")
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         IxBServ.delete(id);

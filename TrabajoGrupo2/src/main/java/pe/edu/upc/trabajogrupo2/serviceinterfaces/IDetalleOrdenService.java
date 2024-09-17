@@ -12,4 +12,6 @@ public interface IDetalleOrdenService {
     public DetalleOrden listId(int id);
     public void update(DetalleOrden DetOrd);
     public void delete(int id);
+    public List<String[]> ProductoVendidoxBotica();
+    public List<String[]> BoticasConMayoresVentas();
 }

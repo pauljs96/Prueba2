@@ -19,6 +19,7 @@ public class ProductoController {
     @Autowired
     private IProductoService pS;
 
+    @PreAuthorize("hasAuthority('DBotica') or hasAuthority('Administrador')")
     @GetMapping
     public List<ProductoDTO> listar(){
         return pS.list().stream().map(x -> {
@@ -27,7 +28,7 @@ public class ProductoController {
         }).collect(Collectors.toList());
     }
 
-    @PreAuthorize("hasAuthority('DBotica')")
+    @PreAuthorize("hasAuthority('DBotica') or hasAuthority('Administrador')")
     @PostMapping
     public void registrar(@RequestBody ProductoDTO dto) {
         ModelMapper m = new ModelMapper();
@@ -43,6 +44,7 @@ public class ProductoController {
         return dto;
     }
 
+    @PreAuthorize("hasAuthority('DBotica') or hasAuthority('Administrador')")
     @PutMapping
     public void modificar(@RequestBody ProductoDTO dto){
         ModelMapper m = new ModelMapper();

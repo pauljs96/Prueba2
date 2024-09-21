@@ -38,4 +38,15 @@ public class ComentarioServiceImplement implements IComentarioService {
     public void delete(int id) {
         IComenRepo.deleteById(id);
     }
+
+    @Override
+    public List<Comentario> listarComentariosPorProductoxBotica(int idProductoxBotica) {
+        return IComenRepo.findByPxBoticaId(idProductoxBotica);
+    }
+
+    @Override
+    public List<Object[]> listarUsuariosConMasComentarios() {
+        return IComenRepo.listarUsuariosConMasComentarios();
+    }
+
 }

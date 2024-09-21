@@ -80,4 +80,11 @@ public class ProductoxBoticaController {
         }
         return listaDTO;
     }
+    @GetMapping("/productosXprecio")
+    public List<ProductoxBoticaDTO> listarProductosPorPrecio() {
+        return IxBServ.listarProductosPorPrecio().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ProductoxBoticaDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

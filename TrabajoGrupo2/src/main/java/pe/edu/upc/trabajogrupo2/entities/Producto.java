@@ -20,11 +20,11 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(int idProducto, String nombreProducto, String marcaProducto, String labProducto) {
+    public Producto(int idProducto, String labProducto, String marcaProducto, String nombreProducto) {
         this.idProducto = idProducto;
-        this.nombreProducto = nombreProducto;
-        this.marcaProducto = marcaProducto;
         this.labProducto = labProducto;
+        this.marcaProducto = marcaProducto;
+        this.nombreProducto = nombreProducto;
     }
 
     public int getIdProducto() {
@@ -35,12 +35,12 @@ public class Producto {
         this.idProducto = idProducto;
     }
 
-    public String getNombreProducto() {
-        return nombreProducto;
+    public String getLabProducto() {
+        return labProducto;
     }
 
-    public void setNombreProducto(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
+    public void setLabProducto(String labProducto) {
+        this.labProducto = labProducto;
     }
 
     public String getMarcaProducto() {
@@ -51,12 +51,11 @@ public class Producto {
         this.marcaProducto = marcaProducto;
     }
 
-    public String getLabProducto() {
-        return labProducto;
+    public String getNombreProducto() {
+        return nombreProducto;
     }
 
-    public void setLabProducto(String labProducto) {
-        this.labProducto = labProducto;
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
-
 }

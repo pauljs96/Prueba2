@@ -11,4 +11,6 @@ public interface IProductoService {
     public Producto listId(int id);
     public void update(Producto producto);
     public void delete(int id);
+
+    public List<Object[]> listarMarcaMasRegistrada();
 }

@@ -39,4 +39,14 @@ public class OrdenCompraServiceImplement implements IOrdenCompraService {
     public void delete(int id) {
         oR.deleteById(id);
     }
+
+    @Override
+    public List<OrdenCompra> buscar(String usuario) {
+        return oR.buscarPorUsuario(usuario);
+    }
+
+    @Override
+    public List<Object[]> listarUsuariosConMasOrdenes() {
+        return oR.listarUsuariosConMasOrdenes();
+    }
 }

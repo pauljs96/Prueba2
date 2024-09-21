@@ -15,12 +15,12 @@ public class ProductoDTO {
         this.idProducto = idProducto;
     }
 
-    public String getNombreProducto() {
-        return nombreProducto;
+    public String getLabProducto() {
+        return labProducto;
     }
 
-    public void setNombreProducto(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
+    public void setLabProducto(String labProducto) {
+        this.labProducto = labProducto;
     }
 
     public String getMarcaProducto() {
@@ -31,12 +31,11 @@ public class ProductoDTO {
         this.marcaProducto = marcaProducto;
     }
 
-    public String getLabProducto() {
-        return labProducto;
+    public String getNombreProducto() {
+        return nombreProducto;
     }
 
-    public void setLabProducto(String labProducto) {
-        this.labProducto = labProducto;
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
-
 }

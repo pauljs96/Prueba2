@@ -43,4 +43,9 @@ public class ProductoxBoticaServiceImplement implements IProductoxBoticaService 
     public List<String[]> productosVencidosPorBotica(int idBotica) {
         return IprodxBotRepo.listarProductosVencidos(idBotica);
     }
+
+    @Override
+    public List<ProductoxBotica> listarProductosPorPrecio() {
+        return IprodxBotRepo.listarProductosPorPrecio();
+    }
 }

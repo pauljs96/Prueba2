@@ -10,4 +10,7 @@ public interface IOrdenCompraService {
     public OrdenCompra listId(int id);
     public void update(OrdenCompra ordenCompra);
     public void delete(int id);
+    public List<OrdenCompra> buscar(String usuario);
+
+    public List<Object[]> listarUsuariosConMasOrdenes();
 }

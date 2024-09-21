@@ -4,12 +4,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.trabajogrupo2.dtos.MarcaRegistradaDTO;
 import pe.edu.upc.trabajogrupo2.dtos.ProductoDTO;
 import pe.edu.upc.trabajogrupo2.dtos.RolDTO;
 import pe.edu.upc.trabajogrupo2.entities.Producto;
 import pe.edu.upc.trabajogrupo2.entities.Rol;
 import pe.edu.upc.trabajogrupo2.serviceinterfaces.IProductoService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,5 +58,20 @@ public class ProductoController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         pS.delete(id);
+    }
+
+    @GetMapping("/marcasmasregistradas")
+    public List<MarcaRegistradaDTO> listarMarcaMasRegistrada() {
+        List<Object[]> lista = pS.listarMarcaMasRegistrada();
+        List<MarcaRegistradaDTO> listaDTO = new ArrayList<>();
+
+        for (Object[] x : lista) {
+            MarcaRegistradaDTO dto = new MarcaRegistradaDTO();
+            dto.setMarcaProducto((String) x[0]);
+            dto.setTotalRegistros((Long) x[1]);
+            listaDTO.add(dto);
+        }
+
+        return listaDTO;
     }
 }

@@ -39,4 +39,10 @@ public class ProductoServiceImplement implements IProductoService {
     public void delete(int id) {
         pR.deleteById(id);
     }
+
+    @Override
+    public List<Object[]> listarMarcaMasRegistrada() {
+        return pR.listarMarcaMasRegistrada();
+    }
+
 }

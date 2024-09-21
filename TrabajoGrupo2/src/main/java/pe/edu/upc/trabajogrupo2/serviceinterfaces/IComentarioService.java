@@ -12,4 +12,9 @@ public interface IComentarioService {
     public Comentario listId(int id);
     public void update(Comentario coment);
     public void delete(int id);
+
+    public List<Comentario> listarComentariosPorProductoxBotica(int idProductoxBotica);
+
+    public List<Object[]> listarUsuariosConMasComentarios();
+
 }

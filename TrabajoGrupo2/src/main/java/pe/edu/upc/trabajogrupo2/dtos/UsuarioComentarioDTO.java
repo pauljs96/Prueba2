@@ -4,7 +4,7 @@ public class UsuarioComentarioDTO {
 
     private int idUsuario;
     private String nomUsuario;
-    private long totalComentarios;
+    private int totalComentarios;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -22,11 +22,11 @@ public class UsuarioComentarioDTO {
         this.nomUsuario = nomUsuario;
     }
 
-    public long getTotalComentarios() {
+    public int getTotalComentarios() {
         return totalComentarios;
     }
 
-    public void setTotalComentarios(long totalComentarios) {
+    public void setTotalComentarios(int totalComentarios) {
         this.totalComentarios = totalComentarios;
     }
 }

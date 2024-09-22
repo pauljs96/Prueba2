@@ -4,11 +4,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.trabajogrupo2.dtos.BoticaConMayoresVentasDTO;
 import pe.edu.upc.trabajogrupo2.dtos.BoticaDTO;
 import pe.edu.upc.trabajogrupo2.dtos.DistritoConMayorBoticasDTO;
 import pe.edu.upc.trabajogrupo2.entities.Botica;
 import pe.edu.upc.trabajogrupo2.serviceinterfaces.IBoticaService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,6 +70,7 @@ public class BoticaController {
         }).collect(Collectors.toList());
     }
 
+    /*
     @PreAuthorize("hasAuthority('Administrador')")
     @GetMapping("/buscardistritocantboticas")
     public List<DistritoConMayorBoticasDTO> listarDistritoMayorCantBoticas() {
@@ -75,5 +78,22 @@ public class BoticaController {
             ModelMapper m=new ModelMapper();
             return m.map(x,DistritoConMayorBoticasDTO.class);
         }).collect(Collectors.toList());
+    }*/
+
+    @PreAuthorize("hasAuthority('Administrador')")
+    @GetMapping("/buscardistritocantboticas")
+    public List<DistritoConMayorBoticasDTO> listarDistritoMayorCantBoticas() {
+        List<String[]> lista= bS.listarDistritoMayorCantBoticas();
+
+        List<DistritoConMayorBoticasDTO> listaDTO= new ArrayList<>();
+
+        for(String[] x:lista){
+            DistritoConMayorBoticasDTO dto= new DistritoConMayorBoticasDTO();
+            dto.setDistrito((x[0]));
+            dto.setCantidad((Integer.parseInt(x[1])));
+            listaDTO.add(dto);
+
+        }
+        return listaDTO;
     }
 }

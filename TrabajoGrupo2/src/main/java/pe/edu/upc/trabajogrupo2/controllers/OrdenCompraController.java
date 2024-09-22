@@ -65,17 +65,18 @@ public class OrdenCompraController {
         }).collect(Collectors.toList());
     }
 
+    @PreAuthorize("hasAuthority('Cliente') or hasAuthority('Administrador')")
     @GetMapping("/usuariosconmayoresordenes")
     public List<UsuarioOrdenesDTO> UsuariosConMasOrdenesController() {
 
-        List<Object[]> lista = oS.listarUsuariosConMasOrdenes();
+        List<String[]> lista = oS.listarUsuariosConMasOrdenes();
         List<UsuarioOrdenesDTO> listaDTO = new ArrayList<>();
 
-        for (Object[] x : lista) {
+        for (String[] x : lista) {
             UsuarioOrdenesDTO dto = new UsuarioOrdenesDTO();
-            dto.setIdUsuario((Integer) x[0]);
-            dto.setNomUsuario((String) x[1]);
-            dto.setTotalOrdenes((Long) x[2]);
+            dto.setIdUsuario(Integer.parseInt(x[0]));
+            dto.setNomUsuario(x[1]);
+            dto.setTotalOrdenes(Integer.parseInt(x[2]));
             listaDTO.add(dto);
         }
 

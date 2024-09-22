@@ -46,7 +46,7 @@ public class OrdenCompraServiceImplement implements IOrdenCompraService {
     }
 
     @Override
-    public List<Object[]> listarUsuariosConMasOrdenes() {
+    public List<String[]> listarUsuariosConMasOrdenes() {
         return oR.listarUsuariosConMasOrdenes();
     }
 }

@@ -12,5 +12,5 @@ public interface IOrdenCompraService {
     public void delete(int id);
     public List<OrdenCompra> buscar(String usuario);
 
-    public List<Object[]> listarUsuariosConMasOrdenes();
+    public List<String[]> listarUsuariosConMasOrdenes();
 }

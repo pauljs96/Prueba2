@@ -4,7 +4,7 @@ public class UsuarioOrdenesDTO {
 
     private int idUsuario;
     private String nomUsuario;
-    private long totalOrdenes;
+    private int totalOrdenes;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -22,11 +22,11 @@ public class UsuarioOrdenesDTO {
         this.nomUsuario = nomUsuario;
     }
 
-    public long getTotalOrdenes() {
+    public int getTotalOrdenes() {
         return totalOrdenes;
     }
 
-    public void setTotalOrdenes(long totalOrdenes) {
+    public void setTotalOrdenes(int totalOrdenes) {
         this.totalOrdenes = totalOrdenes;
     }
 }

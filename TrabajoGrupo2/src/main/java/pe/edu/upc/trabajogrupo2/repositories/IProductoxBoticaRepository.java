@@ -13,7 +13,7 @@ public interface IProductoxBoticaRepository extends JpaRepository<ProductoxBotic
     @Query(value = "SELECT b.id_productox_botica, p.nombre_producto, b.fechavencimiento\n" +
             " FROM productox_botica b\n" +
             " JOIN producto p ON b.id_producto = p.id_producto\n" +
-            " WHERE b.id_botica = :idBotica\n" +
+            " WHERE b.id_botica = :idBotica AND b.fechavencimiento < CURRENT_DATE\n" +
             " GROUP BY b.id_productox_botica, p.nombre_producto, b.fechavencimiento;", nativeQuery = true)
     public List<String[]> listarProductosVencidos(@Param("idBotica") int idBotica);
 

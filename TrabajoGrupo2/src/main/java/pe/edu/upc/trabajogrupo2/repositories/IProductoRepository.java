@@ -10,6 +10,9 @@ import java.util.List;
 @Repository
 public interface IProductoRepository extends JpaRepository<Producto, Integer> {
 
-    @Query("SELECT p.marcaProducto, COUNT(p) as total FROM Producto p GROUP BY p.marcaProducto ORDER BY total DESC")
-    public List<Object[]> listarMarcaMasRegistrada();
+    @Query(value = "SELECT p.marca_producto, COUNT(p) as total \n" +
+            " FROM producto p \n" +
+            " GROUP BY p.marca_producto \n" +
+            " ORDER BY total DESC",nativeQuery = true)
+    public List<String[]> listarMarcaMasRegistrada();
 }

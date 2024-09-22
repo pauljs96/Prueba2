@@ -41,7 +41,7 @@ public class ProductoServiceImplement implements IProductoService {
     }
 
     @Override
-    public List<Object[]> listarMarcaMasRegistrada() {
+    public List<String[]> listarMarcaMasRegistrada() {
         return pR.listarMarcaMasRegistrada();
     }
 

@@ -3,7 +3,7 @@ package pe.edu.upc.trabajogrupo2.dtos;
 public class MarcaRegistradaDTO {
 
     private String marcaProducto;
-    private Long totalRegistros;
+    private int totalRegistros;
 
     public String getMarcaProducto() {
         return marcaProducto;
@@ -13,11 +13,11 @@ public class MarcaRegistradaDTO {
         this.marcaProducto = marcaProducto;
     }
 
-    public Long getTotalRegistros() {
+    public int getTotalRegistros() {
         return totalRegistros;
     }
 
-    public void setTotalRegistros(Long totalRegistros) {
+    public void setTotalRegistros(int totalRegistros) {
         this.totalRegistros = totalRegistros;
     }
 }

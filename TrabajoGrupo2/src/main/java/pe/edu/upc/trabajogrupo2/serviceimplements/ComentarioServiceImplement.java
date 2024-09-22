@@ -45,7 +45,7 @@ public class ComentarioServiceImplement implements IComentarioService {
     }
 
     @Override
-    public List<Object[]> listarUsuariosConMasComentarios() {
+    public List<String[]> listarUsuariosConMasComentarios() {
         return IComenRepo.listarUsuariosConMasComentarios();
     }
 

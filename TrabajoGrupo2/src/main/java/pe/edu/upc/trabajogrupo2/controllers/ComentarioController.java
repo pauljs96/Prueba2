@@ -64,7 +64,7 @@ public class ComentarioController {
         ICServ.delete(id);
     }
 
-    @GetMapping("/ComentarioDeProductos}")
+    @GetMapping("/ComentarioDeProductos")
     public List<ComentarioDTO> listarComentariosPorProductoxBotica(@PathVariable("idProductoxBotica") Integer idProductoxBotica) {
         ModelMapper m = new ModelMapper();
         return ICServ.listarComentariosPorProductoxBotica(idProductoxBotica).stream()
@@ -72,17 +72,16 @@ public class ComentarioController {
                 .collect(Collectors.toList());
     }
 
+    @PreAuthorize("hasAuthority('Administrador') or hasAuthority('Cliente')")
     @GetMapping("/usuariosmascomentarios")
     public List<UsuarioComentarioDTO> listarUsuariosConMasComentariosController() {
-
-        List<Object[]> lista = ICServ.listarUsuariosConMasComentarios();
+        List<String[]> lista = ICServ.listarUsuariosConMasComentarios();
         List<UsuarioComentarioDTO> listaDTO = new ArrayList<>();
-
-        for (Object[] x : lista) {
+        for (String[] x : lista) {
             UsuarioComentarioDTO dto = new UsuarioComentarioDTO();
-            dto.setIdUsuario((Integer) x[0]);
-            dto.setNomUsuario((String) x[1]);
-            dto.setTotalComentarios((Long) x[2]);
+            dto.setIdUsuario(Integer.parseInt(x[0]));
+            dto.setNomUsuario(x[1]);
+            dto.setTotalComentarios(Integer.parseInt(x[2]));
             listaDTO.add(dto);
         }
         return listaDTO;

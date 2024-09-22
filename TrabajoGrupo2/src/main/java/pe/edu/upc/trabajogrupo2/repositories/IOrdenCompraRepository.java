@@ -13,6 +13,10 @@ public interface IOrdenCompraRepository extends JpaRepository<OrdenCompra, Integ
     @Query("SELECT o FROM OrdenCompra o WHERE o.usuario.nomUsuario LIKE %:nombre%")
     public List<OrdenCompra> buscarPorUsuario(@Param("nombre") String nombre);
 
-    @Query("SELECT o.usuario, COUNT(o) as totalOrdenes FROM OrdenCompra o GROUP BY o.usuario ORDER BY totalOrdenes DESC")
-    public List<Object[]> listarUsuariosConMasOrdenes();
+    @Query(value = "SELECT o.id_usuario,u.nom_usuario, COUNT(o) as totalOrdenes \n" +
+            " FROM orden_compra o INNER JOIN usuario u\n" +
+            " on o.id_usuario=u.id_usuario\n" +
+            " GROUP BY o.id_usuario,u.nom_usuario\n" +
+            " ORDER BY totalOrdenes DESC",nativeQuery = true)
+    public List<String[]> listarUsuariosConMasOrdenes();
 }

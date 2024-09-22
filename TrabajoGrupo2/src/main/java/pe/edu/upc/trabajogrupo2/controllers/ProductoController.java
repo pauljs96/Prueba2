@@ -60,15 +60,16 @@ public class ProductoController {
         pS.delete(id);
     }
 
+    @PreAuthorize("hasAuthority('DBotica') or hasAuthority('Administrador')")
     @GetMapping("/marcasmasregistradas")
     public List<MarcaRegistradaDTO> listarMarcaMasRegistrada() {
-        List<Object[]> lista = pS.listarMarcaMasRegistrada();
+        List<String[]> lista = pS.listarMarcaMasRegistrada();
         List<MarcaRegistradaDTO> listaDTO = new ArrayList<>();
 
-        for (Object[] x : lista) {
+        for (String[] x : lista) {
             MarcaRegistradaDTO dto = new MarcaRegistradaDTO();
-            dto.setMarcaProducto((String) x[0]);
-            dto.setTotalRegistros((Long) x[1]);
+            dto.setMarcaProducto(x[0]);
+            dto.setTotalRegistros(Integer.parseInt(x[1]));
             listaDTO.add(dto);
         }
 

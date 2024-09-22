@@ -15,6 +15,6 @@ public interface IComentarioService {
 
     public List<Comentario> listarComentariosPorProductoxBotica(int idProductoxBotica);
 
-    public List<Object[]> listarUsuariosConMasComentarios();
+    public List<String[]> listarUsuariosConMasComentarios();
 
 }

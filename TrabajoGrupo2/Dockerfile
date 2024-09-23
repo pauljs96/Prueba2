@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM openjdk:21
 #VOLUME /tmp
 #EXPOSE 8080
 COPY target/TrabajoGrupo2-0.0.1-SNAPSHOT.jar app.jar

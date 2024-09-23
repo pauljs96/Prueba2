@@ -1,0 +1,5 @@
+# Created at 2024-09-22T18:55:34.930
+Boot Manifest-JAR contains absolute paths in classpath 'D:\PAUL\2024-02\Arquitectura Web\FarmaGO\TrabajoGrupo2\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
